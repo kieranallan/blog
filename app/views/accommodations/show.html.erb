@@ -13,29 +13,7 @@
 </ul>
 
 <h2>Reviews</h2>
-<% @accommodation.reviews.each do |review| %>
-  <p>
-    <strong>Reviewer:</strong>
-    <%= review.reviewer %>
-  </p>
-
-  <p>
-    <strong>Review:</strong>
-    <%= review.body %>
-  </p>
-<% end %>
+<%= render @accommodation.reviews %>
 
 <h2>Write a review:</h2>
-<%= form_with model: [ @accommodation, @accommodation.reviews.build ] do |form| %>
-  <p>
-    <%= form.label :reviewer %><br>
-    <%= form.text_field :reviewer %>
-  </p>
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<%= render 'reviews/form' %>
