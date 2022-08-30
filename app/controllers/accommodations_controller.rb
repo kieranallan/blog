@@ -21,6 +21,20 @@ class AccommodationsController < ApplicationController
     end
   end
 
+  def edit
+    @accommodation = Accommodation.find(params[:id])
+  end
+
+  def update
+    @accommodation = Accommodation.find(params[:id])
+
+    if @accommodation.update(accommodation_params)
+      redirect_to @accommodation
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
     def accommodation_params
       params.require(:accommodation).permit(:title, :description, :persons)
