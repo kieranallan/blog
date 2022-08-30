@@ -3,7 +3,7 @@
 <ul>
   <% @accommodations.each do |accommodation| %>
     <li>
-      <%= accommodation.title %>
+      <%= link_to accommodation.title, accommodation %>
     </li>
   <% end %>
 </ul>
