@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root "accommodations#index"
 
-  resources :accommodations
+  resources :accommodations do
+    resources :reviews
+  end
 end

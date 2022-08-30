@@ -35,6 +35,13 @@ class AccommodationsController < ApplicationController
     end
   end
 
+  def destroy
+    @accommodation = Accommodation.find(params[:id])
+    @accommodation.destroy
+
+    redirect_to root_path, status: :see_other
+  end
+
   private
     def accommodation_params
       params.require(:accommodation).permit(:title, :description, :persons)
